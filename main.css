@@ -1,0 +1,112 @@
+/* 기본 스타일 */
+body {
+    background-color: #161616;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 세로로 배치 */
+    position: relative; /* 부모 요소에 relative 설정 */
+}
+
+.headline {
+    cursor: pointer;
+    color: white;
+    font-size: 57px;
+    text-align: center;
+    transition: font-size 0.3s ease;
+    z-index: 1; /* 헤드라인이 이미지보다 위에 오도록 설정 */
+}
+
+.content {
+    color: white;
+    font-size: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease, font-size 0.3s ease;
+    text-align: center;
+    margin-top: 20px; /* 텍스트와 이미지 간격 조정 */
+    z-index: 1;
+}
+
+.text {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.img {
+    max-width: 100%;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    position: absolute;
+    top: calc(50% + 50px); /* 이미지를 50px 아래로 내려줌 */
+    left: 50%; /* 가운데 정렬 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 0; /* 이미지가 텍스트 뒤로 가도록 설정 */
+}
+
+.img:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* 마우스 호버 시 이미지 커짐 */
+}
+
+/* === 반응형 디자인 === */
+
+/* 모바일 (최대 너비 600px) */
+@media (max-width: 600px) {
+    .headline {
+        font-size: 32px; /* 제목 크기 축소 */
+    }
+
+    .content {
+        font-size: 8px; /* 텍스트 크기 축소 */
+    }
+
+    .img {
+        max-width: 80%; /* 이미지 크기 제한 */
+    }
+}
+
+/* 태블릿 (최대 너비 900px) */
+@media (max-width: 900px) {
+    .headline {
+        font-size: 42px; /* 제목 크기 */
+    }
+
+    .content {
+        font-size: 18px; /* 텍스트 크기 */
+    }
+
+    .img {
+        max-width: 70%; /* 이미지 크기 조정 */
+    }
+}
+
+/* 데스크탑 소형 (최대 너비 1200px) */
+@media (max-width: 1200px) {
+    .headline {
+        font-size: 50px;
+    }
+
+    .content {
+        font-size: 20px;
+    }
+}
+
+/* 대형 화면 (1200px 이상) */
+@media (min-width: 1200px) {
+    .headline {
+        font-size: 57px; /* 기본 크기 유지 */
+    }
+
+    .content {
+        font-size: 22px; /* 약간 더 큰 텍스트 */
+    }
+
+    .img {
+        max-width: 60%; /* 큰 화면에서는 더 큰 이미지 허용 */
+    }
+}
