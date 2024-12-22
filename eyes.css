@@ -1,0 +1,224 @@
+/* body 스타일 */
+body {
+    background-color: #161616;
+    color: white;
+    transition: background-color 0.5s ease;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 전체 화면 높이를 고정 */
+    overflow: hidden; /* 스크롤을 없애기 위한 설정 */
+}
+
+/* 링크 스타일 */
+a.headline-link {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+.headline {
+    margin: 0;
+    margin-top: 33px; /* 상단 여백 */
+    margin-left: 23px; /* 왼쪽 여백 */
+    margin-bottom: 50px; /* 아래 여백 */
+    font-size: 60px;
+    position: relative;  /* 상대적 위치 */
+    width: 100%; /* 전체 화면 너비 사용 */
+    box-sizing: border-box;
+}
+
+/* 도움말 이미지 스타일 */
+.Q {
+    position: fixed;
+    top: 60px;
+    right: 50px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 눈 컨테이너 */
+.eyes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* auto-fill로 변경 */
+    gap: 0px;
+    width: 100vw;
+    height: calc(100vh - 200px);
+    justify-items: center;
+    align-items: center;
+    margin: -10px;
+    overflow: hidden;
+}
+
+
+/* 각 눈 스타일 */
+.eye {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* 동공 스타일 */
+.pupil {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 50%;
+    transition: transform 0.1s ease;
+}
+
+/* 하이라이트 효과 */
+.highlight {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    top: 8px;
+    left: 10px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+/* 도움말 이미지 스타일 */
+.image-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hover-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.image-container::after {
+    content: "자극을 따라다니는 사람들을 눈들로 표현했습니다.\A마우스를 움직이면서 계속해서 따라오는 사람들의 시선을 느껴보세요.";
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2;
+    z-index: 1000;
+    transition: opacity 0.1s ease-in, visibility 0s 0.1s;
+    white-space: pre-wrap; /* 텍스트가 잘리지 않게 자동으로 줄바꿈 */
+    word-wrap: break-word; /* 긴 단어가 잘리지 않도록 처리 */
+    text-align: center;
+    pointer-events: none;
+    padding: 0 10vw; /* 좌우 여백을 추가하여 텍스트가 너무 가까워지지 않도록 */
+    box-sizing: border-box;
+}
+
+/* 반응형 디자인 적용 */
+
+/* 화면 크기가 1024px 이하일 때 */
+@media (max-width: 1024px) {
+    .image-container::after {
+        font-size: min(5vw, 22px); /* 화면 크기에 맞춰 폰트 크기 비례적으로 줄이기 */
+        line-height: 1.8; /* 줄 간격을 조금 더 늘려서 텍스트가 더 잘 보이게 */
+        padding: 0 8vw; /* 좌우 여백을 조금 더 줄여서 텍스트 공간을 확보 */
+    }
+}
+
+/* 화면 크기가 768px 이하일 때 */
+@media (max-width: 768px) {
+    .image-container::after {
+        font-size: min(7vw, 18px); /* 화면 크기에 맞춰 폰트 크기 비례적으로 줄이기 */
+        line-height: 2; /* 줄 간격을 늘려서 텍스트가 깨지지 않도록 */
+        padding: 0 5vw; /* 좌우 여백을 더 줄여서 텍스트가 충분히 보이도록 */
+    }
+}
+
+/* 화면 크기가 480px 이하일 때 */
+@media (max-width: 480px) {
+    .image-container::after {
+        font-size: min(9vw, 16px); /* 화면 크기에 맞춰 폰트 크기 비례적으로 줄이기 */
+        line-height: 2.2; /* 줄 간격을 늘려서 텍스트가 더 잘 보이게 */
+        padding: 0 4vw; /* 좌우 여백을 더욱 줄여서 텍스트가 잘리지 않게 조정 */
+    }
+}
+
+.image-container:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease-out;
+}
+
+
+/* 버튼 컨테이너 */
+.button-container {
+    display: flex;
+    justify-content: space-evenly; /* 버튼 간격 균등하게 배치 */
+    align-items: center; /* 버튼을 세로로 중앙 정렬 */
+    position: fixed; /* 화면 하단에 고정 */
+    bottom: 0; /* 화면 하단에 정확히 배치 */
+    left: 0; /* 화면 왼쪽에 맞추기 */
+    width: 100%; /* 화면의 너비에 맞춤 */
+    height: 70px; /* 버튼 컨테이너 높이 설정 */
+    background-color: #161616;
+    z-index: 10; /* 다른 콘텐츠보다 우선 표시 */
+    box-sizing: border-box; /* 패딩과 테두리가 요소 크기에 포함되도록 설정 */
+    padding: 0 20px; /* 좌우 여백 추가 */
+    margin: 0;
+}
+
+/* 버튼 스타일 */
+.button {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 10px; /* 좌우 여백을 동일하게 설정 */
+    font-size: 16px;
+    background-color: #161616;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+/* 버튼 호버 효과 */
+.button:hover {
+    background-color: #303030;
+}
+
+/* 화면 크기가 1024px 이하일 때 버튼 스타일 수정 */
+@media (max-width: 1024px) {
+    .button {
+        font-size: 14px; /* 작은 화면에서 버튼 글씨 크기 줄이기 */
+    }
+}
+
+/* 화면 크기가 768px 이하일 때 버튼 스타일 수정 */
+@media (max-width: 768px) {
+    .button {
+        font-size: 12px; /* 버튼 글씨 크기 더 줄이기 */
+        padding: 8px 0; /* 버튼 크기를 줄이기 */
+    }
+}
+
+/* 화면 크기가 480px 이하일 때 버튼 스타일 수정 */
+@media (max-width: 480px) {
+    .button {
+        font-size: 10px; /* 버튼 글씨 크기 최대한 줄이기 */
+        padding: 6px 0; /* 버튼 크기 더 줄이기 */
+    }
+}
