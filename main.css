@@ -1,0 +1,150 @@
+/* 기본 스타일 */
+body {
+    background-color: #161616;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 세로로 배치 */
+    position: relative; /* 부모 요소에 relative 설정 */
+    overflow: hidden; /* 세로, 가로 스크롤을 막기 위해 */
+    box-sizing: border-box; /* 패딩을 포함한 크기 계산 */
+}
+
+/* 헤드라인 텍스트 */
+.headline {
+    cursor: pointer;
+    color: white;
+    font-size: 57px;
+    text-align: center;
+    transition: font-size 0.3s ease;
+    z-index: 1; /* 헤드라인이 이미지보다 위에 오도록 설정 */
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0; /* 마진을 없애서 위치 정확하게 조정 */
+}
+
+/* 콘텐츠 텍스트 */
+.content {
+    color: white;
+    font-size: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease, font-size 0.3s ease;
+    text-align: center;
+    margin-top: 20px; /* 텍스트와 이미지 간격 조정 */
+    z-index: 1;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 0 20px; /* 텍스트 양 옆에 20px 여백 추가 */
+    margin-bottom: 100px; /* 이미지와 텍스트 간 겹치지 않게 여백 추가 */
+}
+
+/* 텍스트 변경 시 애니메이션 효과 */
+.text {
+    opacity: 1;
+    transition: opacity 0.5s ease; /* 텍스트가 서서히 나타나고 사라지도록 */
+}
+
+/* 이미지 */
+.img {
+    max-width: 100%;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    position: absolute;
+    top: 50%; /* 화면 중앙에 위치하도록 설정 */
+    left: 50%; /* 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+    z-index: 2; /* 이미지가 텍스트 위로 오도록 설정 */
+    pointer-events: auto; /* 클릭이 가능하도록 설정 */
+    display: none; /* 처음에는 이미지 숨김 */
+}
+
+.img:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* 마우스 호버 시 이미지 커짐 */
+}
+
+/* === 반응형 디자인 === */
+
+/* 모바일 (최대 너비 600px) */
+@media (max-width: 600px) {
+    .headline {
+        font-size: 28px; /* 제목 크기 축소 */
+        line-height: 1.4;
+    }
+
+    .content {
+        font-size: 14px; /* 텍스트 크기 축소 */
+        line-height: 1.5;
+        padding: 0 10px; /* 모바일에서 여백을 10px로 조정 */
+    }
+
+    .img {
+        max-width: 80%; /* 이미지 크기 제한 */
+        z-index: 2; /* 이미지 클릭 가능하도록 설정 */
+    }
+}
+
+/* 태블릿 (최대 너비 900px) */
+@media (max-width: 900px) {
+    .headline {
+        font-size: 36px;
+        line-height: 1.4;
+    }
+
+    .content {
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 0 15px; /* 태블릿에서 여백 조정 */
+    }
+
+    .img {
+        max-width: 70%;
+        z-index: 2; /* 이미지 클릭 가능하도록 설정 */
+    }
+}
+
+/* 데스크탑 소형 (최대 너비 1200px) */
+@media (max-width: 1200px) {
+    .headline {
+        font-size: 42px;
+        line-height: 1.4;
+    }
+
+    .content {
+        font-size: 18px;
+        line-height: 1.5;
+        padding: 0 20px;
+    }
+
+    .img {
+        max-width: 60%;
+        z-index: 2; /* 이미지 클릭 가능하도록 설정 */
+    }
+}
+
+/* 대형 화면 (1200px 이상) */
+@media (min-width: 1200px) {
+    .headline {
+        font-size: 57px;
+        line-height: 1.4;
+    }
+
+    .content {
+        font-size: 22px;
+        line-height: 1.5;
+        padding: 0 30px;
+    }
+
+    .img {
+        max-width: 60%;
+        z-index: 2; /* 이미지 클릭 가능하도록 설정 */
+    }
+}
